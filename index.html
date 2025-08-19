@@ -4,511 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carolina Erni — Massages & Thérapies à Genève</title>
+    <title>Carolina Erni — Massages & Thérapies aux Eaux-Vives à Genève</title>
     <link rel="shortcut icon" href="favicon.svg">
-    <style>
-        :root {
-            --color-1: #d4a574;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Arial", sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        a[target="_blank"]:not(.header a)::after {
-            content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640' width='21' height='21'%3E%3Cpath fill='%23CCCCCC' d='M354.4 83.8C359.4 71.8 371.1 64 384 64L544 64C561.7 64 576 78.3 576 96L576 256C576 268.9 568.2 280.6 556.2 285.6C544.2 290.6 530.5 287.8 521.3 278.7L464 221.3L310.6 374.6C298.1 387.1 277.8 387.1 265.3 374.6C252.8 362.1 252.8 341.8 265.3 329.3L418.7 176L361.4 118.6C352.2 109.4 349.5 95.7 354.5 83.7zM64 240C64 195.8 99.8 160 144 160L224 160C241.7 160 256 174.3 256 192C256 209.7 241.7 224 224 224L144 224C135.2 224 128 231.2 128 240L128 496C128 504.8 135.2 512 144 512L400 512C408.8 512 416 504.8 416 496L416 416C416 398.3 430.3 384 448 384C465.7 384 480 398.3 480 416L480 496C480 540.2 444.2 576 400 576L144 576C99.8 576 64 540.2 64 496L64 240z'/%3E%3C/svg%3E");
-            margin-left: 4px;
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        a,
-        a :visited {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .logo a,
-        .logo a :visited {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .logo {
-            font-variant: small-caps;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--color-1);
-        }
-
-        /* Header et Navigation */
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-item {
-            position: relative;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-
-        .nav-link:hover {
-            color: var(--color-1);
-        }
-
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            min-width: 250px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-        }
-
-        .nav-item:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-item {
-            padding: 0.8rem 1.2rem;
-            border-bottom: 1px solid #f0f0f0;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .dropdown-item:hover {
-            background: #fef9e7;
-        }
-
-        .dropdown-item:last-child {
-            border-bottom: none;
-        }
-
-        /* Menu mobile */
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .mobile-menu-btn span {
-            width: 25px;
-            height: 3px;
-            background: #333;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Sections principales */
-        .section {
-            min-height: 100vh;
-            padding: 6rem 2rem 4rem;
-            position: relative;
-        }
-
-        .parallax-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 120%;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            z-index: -2;
-        }
-
-        .section-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            color: var(--color-1);
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        .section-title.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-content {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease 0.3s;
-        }
-
-        .section-content.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Section Accueil */
-        .accueil {
-            min-height: 100vh;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        #accueil {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /*
-            background: linear-gradient(135deg, #f43f54 0%, var(--color-1) 100%);
-            */
-            background-image: url("./images/fond-1.jpg");
-            color: var(--color-1);
-
-            text-align: center;
-        }
-
-        #accueil .section-overlay {
-            background: rgba(244, 208, 63, 0.3);
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.3s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid white;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-
-        .cta-button:hover {
-            background: white;
-            color: var(--color-1);
-        }
-
-        /* Section Présentation */
-        #presentation {
-            /*
-            background: #fef9e7;
-            */
-            background: linear-gradient(135deg, #663B21 0%, #F2AA58 100%);
-        }
-
-        /* Texture de fond pour l'image PNG */
-        .image-with-texture {
-            position: relative;
-            display: inline-block;
-            margin: 2rem auto;
-        }
-
-        .texture-background {
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            right: -20px;
-            bottom: -20px;
-            border-radius: 20px;
-            z-index: -1;
-
-            /* Texture élégante avec dégradé et motifs SVG */
-            background:
-                /* Motif SVG subtil */
-                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.15'%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Ccircle cx='50' cy='10' r='2'/%3E%3Ccircle cx='10' cy='50' r='2'/%3E%3Ccircle cx='50' cy='50' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-                /* Dégradé principal harmonieux */
-                linear-gradient(135deg, #f4e4bc 0%, #e8d5b7 25%, #dcc5a4 50%, #d4a574 75%, #c8956d 100%);
-
-            background-size: 30px 30px, 100% 100%;
-
-            /* Effet de texture supplémentaire avec des ombres */
-            box-shadow:
-                inset 0 0 50px rgba(255, 255, 255, 0.2),
-                inset 0 0 100px rgba(212, 165, 116, 0.1),
-                0 10px 30px rgba(0, 0, 0, 0.1);
-
-            /* Animation subtile */
-            animation: textureShimmer 8s ease-in-out infinite;
-        }
-
-        /* Animation subtile pour la texture */
-        @keyframes textureShimmer {
-            0%, 100% {
-                background-position: 0 0, 0 0;
-                transform: scale(1);
-            }
-            50% {
-                background-position: 30px 30px, 0 0;
-                transform: scale(1.02);
-            }
-        }
-
-        .image-with-texture img {
-            position: relative;
-            z-index: 1;
-            max-width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            /* Filtre subtil pour harmoniser avec la texture */
-            filter: drop-shadow(0 0 10px rgba(212, 165, 116, 0.3));
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .service-card.animate {
-            opacity: 1;
-            transform: translateY(0);
-            animation: slideInUp 0.8s ease forwards;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #f4d03f, var(--color-1));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 2rem;
-            color: white;
-        }
-
-        .service-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .service-description {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Contact Section */
-        #contact {
-            background: #fef9e7;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-item {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--color-1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .duree {
-            margin-top: 2em;
-        }
-
-        .duree,
-        .prix {
-            font-family: monospace;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: white;
-                flex-direction: column;
-                justify-content: start;
-                align-items: center;
-                padding-top: 2rem;
-                transition: left 0.3s ease;
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-            }
-
-            .dropdown {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                background: #fef9e7;
-                margin-top: 1rem;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .parallax-bg {
-                background-attachment: scroll;
-            }
-
-            .texture-background {
-                top: -10px;
-                left: -10px;
-                right: -10px;
-                bottom: -10px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <!-- Header -->
     <header class="header">
         <div class="nav-container">
-            <div class="logo"><a href="#accueil" data-section="accueil"><img src="favicon.svg"
-                        alt="Logo" style="height: 3.5rem; margin-right: 1rem; vertical-align: middle;">
+            <div class="logo"><a href="#accueil" data-section="accueil"><img src="favicon.svg" alt="Logo"
+                        style="height: 3.5rem; margin-right: 1rem; vertical-align: middle;">
                     Carolina Erni</a></div>
             <nav>
                 <ul class="nav-menu">
@@ -559,16 +65,18 @@
                     personne jusqu’à toucher son âme.</p>
                 <p><i>Carolina Erni</i></p>
                 <div class="image-with-texture">
-                    <div class="texture-background"></div>
-                    <img src="./images/carolina-erni-buste.png" alt="Carolina Erni">
+                    <img src="./images/carolina-erni-buste-2.png" alt="Carolina Erni"
+                    style="border-radius: 50%; object-fit: cover; width: 350px; height: 350px; display: block; margin: 0 auto; border: 0px solid #6b3b21;" />
+                </div>
+                <br>
+                <div class="image-with-texture">
+                    <img src="./images/fleur-de-vie.svg" alt="Fleur de vie" style="width: 350px;">
                 </div>
                 <p style="margin-top:10em; font-family: cursive">“Ton corps est ton temple, conserve le propre et pur,
                     afin que l’ame puisse y
                     vivre.”<br>– B.K.S. Iyengar
                 </p>
             </div>
-
-
         </div>
     </section>
 
@@ -671,22 +179,26 @@
             <div class="section-content">
                 <p>Prenez rendez-vous pour une consultation personnalisée et découvrez le bien-être qui vous attend.</p>
                 <div class="contact-info">
+
                     <div class="contact-item">
                         <div class="contact-icon">📍</div>
                         <h3>Adresse du cabinet</h3>
                         <p><a href="https://maps.app.goo.gl/WcVAAxX3e6EZfyx26">Av. Frontenex 34<br>1207 Genève</a></p>
                     </div>
+
                     <div class="contact-item">
                         <div class="contact-icon">📞</div>
                         <h3>Téléphone</h3>
                         <p>+41 76 317 08 16</p>
                     </div>
+
                     <div class="contact-item">
                         <div class="contact-icon">✉️</div>
                         <h3>Email</h3>
                         <p><a href="mailto:caroline.erni@me.com">caroline.erni@me.com</a>
                         </p>
                     </div>
+
                     <div class="contact-item">
                         <div class="contact-icon">🚌</div>
                         <h3>Accès avec les TPG</h3>
@@ -695,6 +207,7 @@
                         <p><a href="https://maps.app.goo.gl/Swd7Dh6QACS8bWjS8">Genève-Eaux-Vives-Gare</a><br>11, 12, 17,
                             EV</p>
                     </div>
+
                     <div class="contact-item">
                         <div class="contact-icon">🚗</div>
                         <h3>Accès véhicules</h3>
@@ -702,11 +215,13 @@
                                 des Eaux-Vives
                             </a></p>
                     </div>
+
                     <div class="contact-item">
                         <div class="contact-icon">🕐</div>
                         <h3>Horaires</h3>
-                        <p>Lun-Ven 9 h – 19 h<br>Sam 9 h – 17 h</p>
+                        <p>Lun-Ven 9 h – 19 h</p>
                     </div>
+
                     <div class="contact-item">
                         <div class="contact-icon">⚖️</div>
                         <h3>CGV</h3>
@@ -716,148 +231,24 @@
                             J’accepte les payements en espèces, en francs suisses et sur place.
                         </p>
                     </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">☯︎</div>
+                        <h3>&nbsp;</h3>
+                        <p style="text-align:center;">
+                            <a href="https://asca.ch/therapeutes-asca/detail-du-therapeute/Caroline-Erni_601591/">
+                                <img src="./images/logo-asca.svg" style="width:100px" />
+                            </a>
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <script>
-        // Navigation et défilement fluide
-        document.addEventListener('DOMContentLoaded', function () {
-            // Gestion du menu mobile
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const navMenu = document.querySelector('.nav-menu');
-
-            mobileMenuBtn.addEventListener('click', function () {
-                navMenu.classList.toggle('active');
-            });
-
-            // Défilement fluide
-            function smoothScroll(target) {
-                const element = document.getElementById(target);
-                if (element) {
-                    const headerHeight = document.querySelector('.header').offsetHeight;
-                    const elementPosition = element.offsetTop - headerHeight;
-
-                    window.scrollTo({
-                        top: elementPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-
-            // Gestion des clics sur les liens de navigation
-            document.querySelectorAll('[data-section]').forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const section = this.getAttribute('data-section');
-                    smoothScroll(section);
-                    navMenu.classList.remove('active');
-                });
-            });
-
-            // Effet parallaxe
-            function parallaxEffect() {
-                const scrolled = window.pageYOffset;
-                const parallaxElements = document.querySelectorAll('.parallax-bg');
-
-                parallaxElements.forEach(element => {
-                    const speed = 0.5;
-                    const yPos = scrolled * speed;
-                    element.style.transform = `translateY(${yPos}px)`;
-                });
-            }
-
-            // Animation au scroll
-            function animateOnScroll() {
-                const elements = document.querySelectorAll('.section-title, .section-content, .service-card');
-
-                elements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('animate');
-                    }
-                });
-            }
-
-            // Header transparent/opaque au scroll
-            function handleHeaderScroll() {
-                const header = document.querySelector('.header');
-                const scrolled = window.pageYOffset;
-
-                if (scrolled > 100) {
-                    header.style.background = 'rgba(255, 255, 255, 0.98)';
-                    header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-                } else {
-                    header.style.background = 'rgba(255, 255, 255, 0.95)';
-                    header.style.boxShadow = 'none';
-                }
-            }
-
-            // Événements de scroll
-            window.addEventListener('scroll', function () {
-                requestAnimationFrame(function () {
-                    parallaxEffect();
-                    animateOnScroll();
-                    handleHeaderScroll();
-                });
-            });
-
-            // Animation initiale
-            animateOnScroll();
-
-            // Délai pour les cartes de services
-            const serviceCards = document.querySelectorAll('.service-card');
-            serviceCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.transitionDelay = `${index * 0.2}s`;
-                }, 100);
-            });
-
-            // Gestion du redimensionnement
-            window.addEventListener('resize', function () {
-                navMenu.classList.remove('active');
-            });
-        });
-    </script>
-
-
-    <script>
-        function targetBlank() {
-            var a = document.getElementsByTagName("a");
-
-            for (var i = 0; i < a.length; i++) {
-                var href = a[i].href;
-                var isExternal = false;
-
-                // Si le lien commence par mailto: il est forcément externe
-                if (/^mailto:/i.test(href)) {
-                    isExternal = true;
-                }
-                // Si on est en protocole file://
-                else if (location.protocol === "file:") {
-                    // Tous les liens http/https et protocol-relative sont externes
-                    isExternal = /^(https?:)?\/\//i.test(href);
-                } else {
-                    // Logique normale pour http/https
-                    var internal = location.host.replace("www.", "");
-                    internal = new RegExp(internal, "i");
-                    var linkHost = a[i].host;
-                    // Un lien est externe s'il a un host et que ce host ne correspond pas au site actuel
-                    isExternal = linkHost && !internal.test(linkHost);
-                }
-
-                if (isExternal) {
-                    a[i].setAttribute("target", "_blank");
-                    a[i].setAttribute("rel", "noopener noreferrer");
-                }
-            }
-        }
-        targetBlank();
-    </script>
-
+    <!-- JavaScript -->
+    <script src="scripts.js"></script>
 </body>
 
 </html>
