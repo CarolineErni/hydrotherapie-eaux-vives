@@ -451,6 +451,9 @@ a :visited {
     color: white;
     font-size: 1.5rem;
 }
+.contact-icon img {
+    width: 70%;
+}
 
 .duree {
     margin-top: 2em;
