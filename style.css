@@ -253,9 +253,14 @@ a :visited {
 /* Section Présentation */
 #presentation {
     /*
-            background: #fef9e7;
-            */
+    opacity: 0.3;
+    */
     background: linear-gradient(135deg, #663b21 0%, #f2aa58 100%);
+    background-image: url('./images/fleur-de-vie.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Texture de fond pour l’image PNG */
