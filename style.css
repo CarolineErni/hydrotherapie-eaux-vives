@@ -250,17 +250,40 @@ a :visited {
     color: rgba(107, 59, 33, 0.5);
 }
 
-/* Section Présentation */
+/* Section de présentation avec le fond spécial */
 #presentation {
-    /*
-    opacity: 0.3;
-    */
+    min-height: 100vh;
     background: linear-gradient(135deg, #663b21 0%, #f2aa58 100%);
-    background-image: url('./images/fleur-de-vie.svg');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+/*
+#presentation::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("./images/fleur-de-vie.svg");
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    opacity: 0.2;
+    z-index: 1;
+}
+*/
+
+#presentation-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
 }
 
 /* Texture de fond pour l’image PNG */

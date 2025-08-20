@@ -5,9 +5,9 @@
         svg {
             fill: none;
             /*
-            stroke: #d4a574;
-            */
             stroke: #000;
+            */
+            stroke: #d4a574;
             stroke-width: 1.5;
         }
     </style>
