@@ -353,13 +353,23 @@ a :visited {
 /* Services Grid */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 2rem;
     margin-top: 3rem;
 }
 
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
 .service-card {
     background: white;
+    /*
+    padding: 0;
+    */
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -379,17 +389,26 @@ a :visited {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-.service-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #f4d03f, var(--color-1));
-    border-radius: 50%;
+.service-picture {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1rem;
+    margin: 0 0 2rem;
+    padding: 0;
     font-size: 2rem;
     color: white;
+}
+
+/* Style pour l'image dans .service-picture */
+.service-picture img {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    border: none;
+    object-fit: cover;
+    display: block;
+    margin: 0;
 }
 
 .service-title {
@@ -404,11 +423,11 @@ a :visited {
 }
 
 /* Contact Section */
-#contact {
+#contact-infos {
     background: #fef9e7;
 }
 
-.contact-info {
+.contact-items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
@@ -440,6 +459,22 @@ a :visited {
 .duree,
 .prix {
     font-family: monospace;
+}
+
+/* Style pour le bouton "Afficher plus" */
+button {
+    background-color: var(--color-1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #b07a50;
 }
 
 /* Animations */

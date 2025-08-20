@@ -151,3 +151,48 @@ function targetBlank() {
     }
 }
 targetBlank();
+
+// Gestion de la limitation des paragraphes et du bouton "Afficher plus" avec affichage limité au repli
+function truncateServiceCards() {
+    const serviceCards = document.querySelectorAll(".service-card");
+
+    serviceCards.forEach((card) => {
+        const originalHTML = card.innerHTML;
+        const serviceIcon = card.querySelector(".service-picture").outerHTML;
+        const serviceTitle = card.querySelector(".service-title").outerHTML;
+
+        if (originalHTML.length > 100) {
+            const truncatedHTML = originalHTML.slice(0, 100);
+            const fullTextContainer = document.createElement("span");
+            fullTextContainer.innerHTML = originalHTML;
+            fullTextContainer.style.display = "none";
+
+            const truncatedTextContainer = document.createElement("span");
+            truncatedTextContainer.innerHTML = serviceIcon + serviceTitle;
+
+            const toggleButton = document.createElement("button");
+            toggleButton.textContent = "Afficher plus";
+            toggleButton.style.marginLeft = "10px";
+
+            toggleButton.addEventListener("click", function () {
+                if (fullTextContainer.style.display === "none") {
+                    fullTextContainer.style.display = "inline";
+                    truncatedTextContainer.style.display = "none";
+                    toggleButton.textContent = "Afficher moins";
+                } else {
+                    fullTextContainer.style.display = "none";
+                    truncatedTextContainer.style.display = "inline";
+                    toggleButton.textContent = "Afficher plus";
+                }
+            });
+
+            card.innerHTML = "";
+            card.appendChild(truncatedTextContainer);
+            card.appendChild(fullTextContainer);
+            card.appendChild(toggleButton);
+        }
+    });
+}
+
+// Appeler la fonction après le chargement du DOM
+document.addEventListener("DOMContentLoaded", truncateServiceCards);
