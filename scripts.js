@@ -158,8 +158,8 @@ function truncateServiceCards() {
 
     serviceCards.forEach((card) => {
         const originalHTML = card.innerHTML;
-        const serviceIcon = card.querySelector(".service-picture").outerHTML;
-        const serviceTitle = card.querySelector(".service-title").outerHTML;
+        const serviceIcon = card.querySelector(".service-card img").outerHTML;
+        const serviceTitle = card.querySelector(".service-card h3").outerHTML;
 
         if (originalHTML.length > 100) {
             const truncatedHTML = originalHTML.slice(0, 100);
