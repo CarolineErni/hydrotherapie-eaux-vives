@@ -7,14 +7,13 @@
     <title>Préparation à l’hydrothérapie du côlon — Cabinet Carolina Erni</title>
     <style>
         body {
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            font-family: "Segoe UI", sans-serif;
             line-height: 1.1;
             color: #333;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             background-color: #f9f9f9;
-            word-wrap: break-word;
         }
 
         .container {
@@ -94,7 +93,14 @@
             text-align: center;
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (max-width: 767px) {
+            body {
+                overflow-wrap: break-word;
+                hyphens: auto;
+            }
+        }
+
+        @media print, screen and (min-width: 768px) {
             section {
                 column-count: 2;
                 column-gap: 40px;
@@ -124,7 +130,7 @@
 
 <body>
     <div class="container">
-        <h1>Prépa&shy;ration à votre séance d’hydro&shy;thérapie du côlon</h1>
+        <h1>Préparation à votre séance d’hydrothérapie du côlon</h1>
 
         <p class="cabinet-title">Cabinet Carolina Erni<br>Hydrothérapie & massages<br>Eaux-Vives — Genève<br><a href="https://hydrotherapie-eaux-vives.ch">hydrotherapie-eaux-vives.ch</a></p>
 
@@ -163,7 +169,7 @@
 
             <h3>💧 Hydratation</h3>
             <ul>
-                <li>Buvez 2 à 2,5 litres d’eau pure par jour</li>
+                <li>Buvez 2 à 2,5 litres d’eau plate par jour</li>
                 <li>Privilégiez les tisanes digestives (fenouil, camomille, menthe douce)</li>
                 <li>Évitez l’alcool, le café et les boissons gazeuses</li>
                 <li>Limitez le thé à une tasse par jour maximum</li>
