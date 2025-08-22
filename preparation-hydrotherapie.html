@@ -14,6 +14,7 @@
             margin: 0 auto;
             padding: 20px;
             background-color: #f9f9f9;
+            word-wrap: break-word;
         }
 
         .container {
@@ -93,10 +94,12 @@
             text-align: center;
         }
 
-        section {
-            column-count: 2;
-            column-gap: 40px;
-            column-rule: 1px solid #e0e0e0;
+        @media screen and (min-width: 768px) {
+            section {
+                column-count: 2;
+                column-gap: 40px;
+                column-rule: 1px solid #e0e0e0;
+            }
         }
 
         @page {
@@ -121,7 +124,7 @@
 
 <body>
     <div class="container">
-        <h1>Préparation à votre séance d’hydrothérapie du côlon</h1>
+        <h1>Prépa&shy;ration à votre séance d’hydro&shy;thérapie du côlon</h1>
 
         <p class="cabinet-title">Cabinet Carolina Erni<br>Hydrothérapie & massages<br>Eaux-Vives — Genève<br><a href="https://hydrotherapie-eaux-vives.ch">hydrotherapie-eaux-vives.ch</a></p>
 
