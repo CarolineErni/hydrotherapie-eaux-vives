@@ -149,7 +149,6 @@ a[data-section] {
     border-bottom: none;
 }
 
-/* Menu mobile */
 .mobile-menu-btn {
     display: none;
     flex-direction: column;
@@ -165,7 +164,6 @@ a[data-section] {
     transition: 0.3s;
 }
 
-/* Sections principales */
 .section {
     min-height: 100vh;
     padding: 6rem 2rem 4rem;
@@ -174,7 +172,6 @@ a[data-section] {
 
 .parallax-bg {
     position: absolute;
-    top: 0;
     left: 0;
     width: 100%;
     height: 120%;
@@ -190,7 +187,14 @@ a[data-section] {
     left: 0;
     width: 100%;
     height: 100%;
+    /*
     background: rgba(255, 255, 255, 0.9);
+    */
+    background: linear-gradient(
+        135deg,
+        rgba(102, 59, 33, 0.9) 0%,
+        rgba(242, 170, 88, 0.1) 100%
+    );
     z-index: -1;
 }
 
@@ -198,6 +202,16 @@ a[data-section] {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
+}
+
+.dark-box {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 2em;
+    margin: 2em;
+    border: 2px solid rgba(107, 59, 33, 0.5);
+    border-radius: 10px;
+    max-width: 90%;
+    overflow-wrap: break-word;
 }
 
 .section-title {
@@ -246,7 +260,7 @@ a[data-section] {
 }
 
 #accueil .section-overlay {
-    background: rgba(244, 208, 63, 0.3);
+    background: rgba(244, 208, 63, 0.7);
 }
 
 .hero-title {
@@ -259,6 +273,7 @@ a[data-section] {
     font-size: 1.5rem;
     margin-bottom: 2rem;
     animation: fadeInUp 1s ease 0.3s both;
+    color: color-mix(in srgb, currentColor 80%, white 20%);
 }
 
 .cta-button {
@@ -277,35 +292,22 @@ a[data-section] {
     color: rgba(107, 59, 33, 0.5);
 }
 
-/* Section de présentation avec le fond spécial */
 #presentation {
     min-height: 100vh;
-    background: linear-gradient(135deg, #663b21 0%, #f2aa58 100%);
+    /*
+    background-color: rgba(107, 59, 33, 0.5);
+    background: linear-gradient(135deg, rgba(102, 59, 33, 0.1) 0%, rgba(242, 170, 88, 0.1) 100%);
+    */
+    background: transparent;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
+    color: var(--color-1);
     padding: 2rem;
 }
-
-/*
-#presentation::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("./images/fleur-de-vie.svg");
-    background-repeat: repeat;
-    background-size: 300px 300px;
-    opacity: 0.2;
-    z-index: 1;
-}
-*/
 
 #presentation-content {
     position: relative;
@@ -313,7 +315,6 @@ a[data-section] {
     max-width: 800px;
 }
 
-/* Texture de fond pour l’image PNG */
 .image-with-texture {
     position: relative;
     display: inline-block;
@@ -375,6 +376,14 @@ a[data-section] {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     /* Filtre subtil pour harmoniser avec la texture */
     filter: drop-shadow(0 0 10px rgba(212, 165, 116, 0.3));
+}
+
+#therapies-massages {
+    background: linear-gradient(
+        135deg,
+        rgba(102, 59, 33, 1) 0%,
+        rgba(242, 170, 88, 1) 100%
+    );
 }
 
 /* Services Grid */
